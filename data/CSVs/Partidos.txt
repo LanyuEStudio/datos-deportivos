@@ -1,0 +1,5 @@
+{indice:1,nombreCampo:"fecha"}
+{indice:2,nombreCampo:"local"}
+{indice:3,nombreCampo:"visitante"}
+{indice:4,nombreCampo:"golesLocal"}
+{indice:5,nombreCampo:"golesVisitante"}
