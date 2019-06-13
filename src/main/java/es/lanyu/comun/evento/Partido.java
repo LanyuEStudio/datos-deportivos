@@ -28,14 +28,10 @@ public class Partido extends EventoImpl implements 	EventoConGoles,
 	transient private ServicioEntidad servicioEntidad;
 	
 	private ServicioEntidad getServicioEntidad() {
-		System.err.println("GET ServicioEntidad");
-		System.err.println(servicioEntidad);
 		return servicioEntidad;
 	}
 	
 	public void setServicioEntidad(ServicioEntidad servicioEntidad) {
-		System.err.println("SET ServicioEntidad");
-		System.err.println(servicioEntidad);
 		this.servicioEntidad = servicioEntidad;
 	}
 
@@ -56,7 +52,6 @@ public class Partido extends EventoImpl implements 	EventoConGoles,
 	@Override
 	public Participante getLocal() {
 		if(local == null)
-			//local = Evaluador.getParticipante(idLocal);
 			local = getServicioEntidad().getIdentificable(Participante.class, idLocal);
 		return local;
 	}
@@ -64,7 +59,6 @@ public class Partido extends EventoImpl implements 	EventoConGoles,
 	@Override
 	public Participante getVisitante() {
 		if(visitante == null)
-			//visitante = Evaluador.getParticipante(idVisitante);
 			visitante = getServicioEntidad().getIdentificable(Participante.class,idVisitante);
 		return visitante;
 	}
