@@ -27,7 +27,7 @@ public class Partido extends EventoImpl implements 	EventoConGoles,
 	static private SimpleDateFormat formatoDiaHora = new SimpleDateFormat("E dd/MM HH:mm");
 	transient private ServicioEntidad servicioEntidad;
 	
-	private ServicioEntidad getServicioEntidad() {
+	protected ServicioEntidad getServicioEntidad() {
 		return servicioEntidad;
 	}
 	
