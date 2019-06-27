@@ -4,7 +4,7 @@ import java.util.Date;
 
 import es.lanyu.participante.Participante;
 
-public class Corner extends Suceso {
+public class Corner extends SucesoImpl {
 
 	public Corner(){}
 	

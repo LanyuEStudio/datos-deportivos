@@ -4,7 +4,8 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 import es.lanyu.comun.suceso.Tarjeta;
-import es.lanyu.comun.suceso.Tarjeta.TipoTarjeta;
+import es.lanyu.comun.suceso.TarjetaImpl;
+import es.lanyu.comun.suceso.TarjetaImpl.TipoTarjeta;
 import es.lanyu.participante.Participante;
 
 public interface EventoConTarjetas extends Evento, GestorSucesos, LocalContraVisitante {
@@ -28,7 +29,7 @@ public interface EventoConTarjetas extends Evento, GestorSucesos, LocalContraVis
 	
 	default void addTarjetas(int numeroTarjetas, Participante participante, TipoTarjeta tipo) {
 		for(int i = 0; i < numeroTarjetas; i++){
-			Tarjeta tarjeta = new Tarjeta(null, participante, tipo);
+			TarjetaImpl tarjeta = new TarjetaImpl(null, participante, tipo);
 			addSuceso(tarjeta);
 		}
 	}

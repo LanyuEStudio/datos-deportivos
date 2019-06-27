@@ -1,31 +1,18 @@
 package es.lanyu.comun.suceso;
 
-import es.lanyu.commons.servicios.entidad.ServicioEntidad;
-import es.lanyu.commons.tiempo.DatableImpl;
+import java.util.Date;
+
+import es.lanyu.commons.tiempo.Datable;
 import es.lanyu.participante.Participante;
 
-public abstract class Suceso extends DatableImpl {
-	protected transient Participante participante;
-	protected String idParticipante;
-	protected String actor;
-	transient ServicioEntidad servicioEntidad;
+public interface Suceso extends Datable {
 
-	public Participante getParticipante() {
-		if(participante == null)
-			participante = servicioEntidad.getIdentificable(Participante.class, idParticipante);
-		return participante;
-	}
-	
-	public void setParticipante(Participante participante) {
-		this.participante = participante;
-		this.idParticipante = participante.getIdentificador();
-	}
+	Participante getParticipante();
 
-	public String getActor() {
-		return actor;
-	}
+	void setParticipante(Participante participante);
 	
-	public void setActor(String actor) {
-		this.actor = actor;
-	}
+	String getActor();
+	
+	void setFecha(Date fecha);
+	
 }

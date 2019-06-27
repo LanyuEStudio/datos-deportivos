@@ -1,30 +1,11 @@
 package es.lanyu.comun.suceso;
 
-import java.util.Date;
+import es.lanyu.comun.suceso.TarjetaImpl.TipoTarjeta;
 
-import es.lanyu.participante.Participante;
+public interface Tarjeta extends Suceso {
 
-public class Tarjeta extends Suceso {
-	public static enum TipoTarjeta {AMARILLA, ROJA}
-	private TipoTarjeta tipoTarjeta;
+	TipoTarjeta getTipoTarjeta();
 
-	public TipoTarjeta getTipoTarjeta() {
-		return tipoTarjeta;
-	}
+	String toString();
 
-	public Tarjeta(){}
-	
-	public Tarjeta(Date fecha, Participante participante, TipoTarjeta tipo) {
-		super();
-		setFecha(fecha);
-		setParticipante(participante);
-		this.tipoTarjeta = tipo;
-	}
-
-	@Override
-	public String toString() {
-		return "Tarjeta " + getTipoTarjeta() + ((getActor() != null)?" para " + getActor():"");
-	};
-	
-	
 }

@@ -4,34 +4,36 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import es.lanyu.commons.identificable.GeneradorIdentificadores;
-import es.lanyu.commons.identificable.GestorNombrables;
 import es.lanyu.commons.servicios.entidad.ServicioEntidad;
 import es.lanyu.commons.tiempo.Datable;
 import es.lanyu.participante.Participante;
 
 public class Partido extends EventoImpl implements 	EventoConGoles,
 													EventoConCorners,
-													EventoConTarjetas {
+													EventoConTarjetas,
+													ContadorDeMinutos {
 	private transient Participante local;
 	private String idLocal;
 	private transient Participante visitante;
 	private String idVisitante;
-	private transient Integer minuto = -1;
+//	private transient Integer minuto = -1;
 	private transient Competicion competicion;
 	private String idCompeticion;
 	static private SimpleDateFormat formatoDiaHora = new SimpleDateFormat("E dd/MM HH:mm");
 	transient private ServicioEntidad servicioEntidad;
 	
 	protected ServicioEntidad getServicioEntidad() {
+		System.err.println("GET ServicioEntidad");
+		System.err.println(servicioEntidad);
 		return servicioEntidad;
 	}
 	
 	public void setServicioEntidad(ServicioEntidad servicioEntidad) {
+		System.err.println("SET ServicioEntidad");
+		System.err.println(servicioEntidad);
 		this.servicioEntidad = servicioEntidad;
 	}
 
@@ -63,12 +65,15 @@ public class Partido extends EventoImpl implements 	EventoConGoles,
 		return visitante;
 	}
 
+//	public Integer getMinuto() {
+//		return minuto;
+//	}
+//
+//	public void setMinuto(Integer minuto) {
+//		this.minuto = minuto;
+//	}
 	public Integer getMinuto() {
-		return minuto;
-	}
-
-	public void setMinuto(Integer minuto) {
-		this.minuto = minuto;
+		return getMinutoActual();
 	}
 	
 	public Competicion getCompeticion() {
@@ -110,7 +115,7 @@ public class Partido extends EventoImpl implements 	EventoConGoles,
 		boolean empezo = estaEmpezado();
 		boolean termino = estaTerminado();
 		return 	((getFecha() != null)?" (" + formatoDiaHora.format(getFecha()) + ")":"")
-				+ ((empezo)?" (min " + minuto + "')":"") + " "
+				+ ((empezo)?" (min " + getMinuto() + "')":"") + " "
 				+ getLocal() + " "
 				+ ((empezo || termino)?
 						(getGolesEquipo(getLocal()) + " - " + getGolesEquipo(getVisitante()) + " ")
@@ -144,7 +149,8 @@ public class Partido extends EventoImpl implements 	EventoConGoles,
 //					" el " + sDateFormat.format(getFecha()) +
 					((getGanador() == null)?"empatan":"gana " + getGanador()) + " => " +
 					((getGanador() == getLocal())?"1":(getGanador() == null)?"X":"2")).trim()
-				:"");
+				:"")
+				;
 	}
 
 	@Override

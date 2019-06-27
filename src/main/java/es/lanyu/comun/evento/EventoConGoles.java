@@ -20,11 +20,6 @@ public interface EventoConGoles extends GestorSucesos, LocalContraVisitante{
 		return (int) getGoles().stream().filter(g -> g.getEquipoAnotador().equals(equipo)).count();
 	}
 	
-	default void addGoles(int numGolesLocal, int numGolesVisitante) {
-		addSucesos(Gol.class, numGolesLocal, getLocal());
-		addSucesos(Gol.class, numGolesVisitante, getVisitante());
-	}
-	
 	default String getResultado() {
 		return String.format(getFormatoGoles(), getGolesEquipo(getLocal()), getGolesEquipo(getVisitante()));
 	}
