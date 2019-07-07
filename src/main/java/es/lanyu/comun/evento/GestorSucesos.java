@@ -18,7 +18,7 @@ public interface GestorSucesos extends Evento {
 		return (int) getSucesos().stream().filter(g -> g.getParticipante().equals(equipo)).count();
 	}
 	
-	default <T extends Suceso> void addSuceso(Suceso suceso) {
+	default void addSuceso(Suceso suceso) {
 		getSucesos().add(suceso);
 	}
 	

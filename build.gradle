@@ -21,11 +21,7 @@ repositories {
     maven { url 'https://jitpack.io' }
 }
 
-/*eclipse.project {
-	referencedProjects 'LanyuJson'
-}*/
-
-/*task sourcesJar(type: Jar, dependsOn: classes) {
+task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
     from sourceSets.main.allSource
 }
@@ -38,4 +34,4 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 artifacts {
     archives sourcesJar
     archives javadocJar
-}*/
+}
