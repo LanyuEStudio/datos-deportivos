@@ -2,16 +2,12 @@ plugins {
 	id 'java'
     id 'java-library'
     id 'eclipse'
-    
-    // For publish to jitpack
-    //id 'maven'
 }
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-	//compile project(':LanyuJson')
 	api 'com.github.LanyuEStudio:lanyuCommon:master-SNAPSHOT'
 }
 

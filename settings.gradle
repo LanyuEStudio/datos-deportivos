@@ -1,6 +1,1 @@
 rootProject.name = 'DatosDeportivos'
-
-//includeFlat 'LanyuJson'
-
-//println rootProject.name
-//println project(':LanyuJson').name
