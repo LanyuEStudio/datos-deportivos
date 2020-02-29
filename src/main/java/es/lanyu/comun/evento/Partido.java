@@ -1,6 +1,7 @@
 package es.lanyu.comun.evento;
 
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
@@ -42,7 +43,7 @@ public class Partido extends EventoImpl implements 	EventoConGoles,
 		return new Comparator<Partido>() {
 			@Override
 			public int compare(Partido partido1, Partido partido2) {
-				int comparacion = Datable.getComparatorDatable().compare(partido1, partido2);
+				int comparacion = Datable.getComparatorDatable(Instant.class).compare(partido1, partido2);
 				if(comparacion == 0)
 					comparacion = partido2.getMinuto().compareTo(partido1.getMinuto());
 				

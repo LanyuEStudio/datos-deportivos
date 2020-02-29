@@ -1,10 +1,10 @@
 package es.lanyu.comun.suceso;
 
 import es.lanyu.commons.servicios.entidad.ServicioEntidad;
-import es.lanyu.commons.tiempo.DatableImpl;
+import es.lanyu.commons.tiempo.DatableInstant;
 import es.lanyu.participante.Participante;
 
-public abstract class SucesoImpl extends DatableImpl implements Suceso {
+public abstract class SucesoImpl extends DatableInstant implements Suceso {
 	protected transient Participante participante;
 	protected String idParticipante;
 	protected String actor;
@@ -37,4 +37,5 @@ public abstract class SucesoImpl extends DatableImpl implements Suceso {
 	public void setActor(String actor) {
 		this.actor = actor;
 	}
+	
 }

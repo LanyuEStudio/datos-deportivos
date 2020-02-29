@@ -1,11 +1,12 @@
 package es.lanyu.comun.suceso;
 
+import java.time.Instant;
 import java.util.Date;
 
 import es.lanyu.commons.tiempo.Datable;
 import es.lanyu.participante.Participante;
 
-public interface Suceso extends Datable {
+public interface Suceso extends Datable<Instant>{
 
 	Participante getParticipante();
 

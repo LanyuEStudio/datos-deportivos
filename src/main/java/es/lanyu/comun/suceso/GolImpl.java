@@ -20,7 +20,7 @@ public class GolImpl extends SucesoImpl implements Gol {
 	 */
 	@Override
 	public Integer getMinuto(){
-		if(fecha == null)
+		if(getFecha() == null)
 			minuto = null;
 		else//TODO Implementar el calculo del minuto
 			;

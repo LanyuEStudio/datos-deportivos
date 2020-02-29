@@ -7,14 +7,14 @@ plugins {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-dependencies {
-	api 'com.github.LanyuEStudio:lanyuCommon:master-SNAPSHOT'
-}
-
 repositories {
     jcenter()
     
     maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+	api 'com.github.LanyuEStudio:lanyuCommon:v1.0.0'
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {

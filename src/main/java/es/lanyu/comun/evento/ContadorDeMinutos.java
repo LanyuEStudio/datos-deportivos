@@ -1,10 +1,11 @@
 package es.lanyu.comun.evento;
 
+import java.time.Instant;
 import java.util.Date;
 
 import es.lanyu.commons.tiempo.Datable;
 
-public interface ContadorDeMinutos extends Datable {
+public interface ContadorDeMinutos extends Datable<Instant> {
 	
 	default Integer getMinutoDesdeHasta(Date desde, Date hasta){
 		if(hasta == null || desde == null)
