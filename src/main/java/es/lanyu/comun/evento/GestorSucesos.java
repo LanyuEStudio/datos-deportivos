@@ -24,7 +24,7 @@ public interface GestorSucesos extends Evento {
 	
 	default <T extends Suceso> void addSuceso(Class<T> tipo, Participante participante) throws InstantiationException, IllegalAccessException {
 		T suceso = tipo.newInstance();
-		suceso.setFecha(null);
+//		suceso.setFecha(null);
 //		suceso.setActor("N/A");
 		suceso.setParticipante(participante);
 		addSuceso(suceso);

@@ -8,26 +8,24 @@ public class TarjetaImpl extends SucesoImpl implements Tarjeta {
 	public static enum TipoTarjeta {AMARILLA, ROJA}
 	private TipoTarjeta tipoTarjeta;
 
-	/* (non-Javadoc)
-	 * @see es.lanyu.comun.suceso.Tarjeta#getTipoTarjeta()
-	 */
 	@Override
 	public TipoTarjeta getTipoTarjeta() {
 		return tipoTarjeta;
 	}
 
-	public TarjetaImpl(){}
+	public TarjetaImpl() {}
 	
-	public TarjetaImpl(Date fecha, Participante participante, TipoTarjeta tipo) {
+	public TarjetaImpl(TipoTarjeta tipo) {
 		super();
-		setFecha(fecha);
-		setParticipante(participante);
 		this.tipoTarjeta = tipo;
 	}
+	
+	public TarjetaImpl(Date fecha, Participante participante, TipoTarjeta tipo) {
+		this(tipo);
+		setFecha(fecha);
+		setParticipante(participante);
+	}
 
-	/* (non-Javadoc)
-	 * @see es.lanyu.comun.suceso.Tarjeta#toString()
-	 */
 	@Override
 	public String toString() {
 		return "Tarjeta " + getTipoTarjeta() + ((getActor() != null)?" para " + getActor():"");

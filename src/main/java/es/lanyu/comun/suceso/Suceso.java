@@ -14,6 +14,6 @@ public interface Suceso extends Datable<Instant>{
 	
 	String getActor();
 	
-	void setFecha(Date fecha);
+//	void setFecha(Date fecha);
 	
 }

@@ -7,17 +7,11 @@ import es.lanyu.participante.Participante;
 public class GolImpl extends SucesoImpl implements Gol {
 	private Integer minuto;
 	
-	/* (non-Javadoc)
-	 * @see es.lanyu.comun.suceso.Gol#getEquipoAnotador()
-	 */
 	@Override
 	public Participante getEquipoAnotador() {
 		return getParticipante();
 	}
 
-	/* (non-Javadoc)
-	 * @see es.lanyu.comun.suceso.Gol#getMinuto()
-	 */
 	@Override
 	public Integer getMinuto(){
 		if(getFecha() == null)
@@ -28,7 +22,10 @@ public class GolImpl extends SucesoImpl implements Gol {
 		return minuto;
 	}
 
-	public GolImpl(){}
+	public GolImpl(){
+		super();
+		setFecha(null);
+	}
 	
 	public GolImpl(Date fecha, String actor, Participante equipoAnotador) {
 		super();
@@ -37,9 +34,6 @@ public class GolImpl extends SucesoImpl implements Gol {
 		setParticipante(equipoAnotador);
 	}
 
-	/* (non-Javadoc)
-	 * @see es.lanyu.comun.suceso.Gol#toString()
-	 */
 	@Override
 	public String toString() {
 		return ((minuto != null)?minuto + "'":"") + " Gol para el " + getEquipoAnotador();

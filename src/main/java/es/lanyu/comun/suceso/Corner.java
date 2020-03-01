@@ -6,7 +6,10 @@ import es.lanyu.participante.Participante;
 
 public class Corner extends SucesoImpl {
 
-	public Corner(){}
+	public Corner(){
+		super();
+		setFecha(null);
+	}
 	
 	public Corner(Date fecha, Participante participante) {
 		super();
@@ -18,6 +21,5 @@ public class Corner extends SucesoImpl {
 	public String toString() {
 		return "Corner para " + getParticipante();
 	};
-	
 	
 }

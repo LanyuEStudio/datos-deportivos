@@ -10,9 +10,6 @@ public abstract class SucesoImpl extends DatableInstant implements Suceso {
 	protected String actor;
 	transient protected ServicioEntidad servicioEntidad;
 
-	/* (non-Javadoc)
-	 * @see es.lanyu.comun.suceso.Suceso#getParticipante()
-	 */
 	@Override
 	public Participante getParticipante() {
 		if(participante == null)
@@ -23,12 +20,9 @@ public abstract class SucesoImpl extends DatableInstant implements Suceso {
 	@Override
 	public void setParticipante(Participante participante) {
 		this.participante = participante;
-		this.idParticipante = participante.getIdentificador();
+		this.idParticipante = (participante != null) ? participante.getIdentificador() : null;
 	}
 
-	/* (non-Javadoc)
-	 * @see es.lanyu.comun.suceso.Suceso#getActor()
-	 */
 	@Override
 	public String getActor() {
 		return actor;
