@@ -7,14 +7,15 @@ import es.lanyu.commons.tiempo.Datable;
 
 public interface ContadorDeMinutos extends Datable<Instant> {
 	
-	default Integer getMinutoDesdeHasta(Date desde, Date hasta){
+	static Integer getMinutoDesdeHasta(Date desde, Date hasta) {
 		if(hasta == null || desde == null)
 			return null;
 		else
 			return (int) (((hasta.getTime() - desde.getTime())/(60000)));
 	}
 	
-	default Integer getMinutoActual(){
+	default Integer getMinutoActual() {
 		return getMinutoDesdeHasta(getFecha(), new Date());
 	}
+	
 }

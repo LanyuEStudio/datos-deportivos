@@ -6,6 +6,4 @@ public interface Tarjeta extends Suceso {
 
 	TipoTarjeta getTipoTarjeta();
 
-	String toString();
-
 }

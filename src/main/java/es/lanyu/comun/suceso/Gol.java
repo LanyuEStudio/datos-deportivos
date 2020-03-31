@@ -6,8 +6,8 @@ public interface Gol {
 
 	Participante getEquipoAnotador();
 
-	Integer getMinuto();
-
-	String toString();
+	default Integer getMinuto() {
+		return null;
+	}
 
 }

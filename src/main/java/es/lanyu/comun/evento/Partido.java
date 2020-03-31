@@ -74,7 +74,7 @@ public class Partido extends EventoImpl implements 	EventoConGoles,
 //		this.minuto = minuto;
 //	}
 	public Integer getMinuto() {
-		return getMinutoActual();
+		return (getMinutoActual() > 0 && !estaTerminado()) ? getMinutoActual() : null;
 	}
 	
 	public Competicion getCompeticion() {
@@ -125,7 +125,7 @@ public class Partido extends EventoImpl implements 	EventoConGoles,
 	}
 	
 	public boolean estaEmpezado(){
-		return getMinuto() >= 0;
+		return getMinuto() != null && getMinuto() >= 0;
 	}
 	
 	public boolean estaTerminado(){
