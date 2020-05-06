@@ -27,14 +27,14 @@ public class Partido extends EventoImpl implements 	EventoConGoles,
 	transient private ServicioEntidad servicioEntidad;
 	
 	protected ServicioEntidad getServicioEntidad() {
-		System.err.println("GET ServicioEntidad");
-		System.err.println(servicioEntidad);
+//		System.err.println("GET ServicioEntidad");
+//		System.err.println(servicioEntidad);
 		return servicioEntidad;
 	}
 	
 	public void setServicioEntidad(ServicioEntidad servicioEntidad) {
-		System.err.println("SET ServicioEntidad");
-		System.err.println(servicioEntidad);
+//		System.err.println("SET ServicioEntidad");
+//		System.err.println(servicioEntidad);
 		this.servicioEntidad = servicioEntidad;
 	}
 
