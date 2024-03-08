@@ -1,33 +1,56 @@
 plugins {
-	id 'java'
-    id 'java-library'
-    id 'eclipse'
+  id 'java-library'
+  id 'maven-publish'
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+java {
+  sourceCompatibility = 1.8
+  targetCompatibility = 1.8
+  withJavadocJar()
+  withSourcesJar()
+}
+
+ext {
+  grupo   = 'es.lanyu'
+  nombre  = 'datos-deportivos'
+  version = '1.1.0'
+}
+
+publishing {
+  publications {
+    maven(MavenPublication) {
+      pom {
+        name = nombre
+        description = 'Libreria para la gestion de datos deportivos (eventos, sucesos, etc...)'
+        url = "https://github.com/LanyuEStudio/$nombre"
+        licenses {
+          license {
+            name = 'The 3-Clause BSD License'
+            url = 'https://opensource.org/license/BSD-3-clause'
+          }
+        }
+        developers {
+          developer {
+            id = 'Awes0meM4n'
+            name = 'Awes0meM4n (github)'
+            email = 'info@lanyu.es'
+          }
+        }
+      }
+      groupId    = grupo
+      artifactId = nombre
+      version    = version
+
+      from components.java
+    }
+  }
+}
 
 repositories {
-    jcenter()
-    
-    maven { url 'https://jitpack.io' }
+  mavenCentral()
+  maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-	api 'com.github.LanyuEStudio:lanyuCommon:v1.0.0'
-}
-
-task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
+  api 'com.github.LanyuEStudio:lanyu-commons:1.1.0'
 }
